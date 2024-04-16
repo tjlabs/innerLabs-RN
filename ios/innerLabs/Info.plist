@@ -26,19 +26,25 @@
 	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
-	  <!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>accelerometer</string>
+		<string>gyroscope</string>
+		<string>magnetometer</string>
+		<string>bluetooth-le</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>location</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
@@ -48,5 +54,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth Always Usage</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth Peripheral Usage</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location Always And When In Use Usage</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location When In Use Usage</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Motion Usage</string>
 </dict>
 </plist>
