@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react';
-import PermissionUtil, { APP_PERMISSION_CODE } from './common/PermissionUtil';
+import PermissionUtil, { APP_PERMISSION_CODE } from '@common/PermissionUtil';
 import WeatherView from '@views/WeatherView';
 import {
   SafeAreaView,
