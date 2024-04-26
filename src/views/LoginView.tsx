@@ -1,7 +1,7 @@
 import palette from '@styles/colorPalette';
 import React, {useState, useRef, useEffect} from 'react';
 import { View, Text, Button, TextInput, Image, StyleSheet, Dimensions, TouchableOpacity, LayoutChangeEvent} from 'react-native';
-// import AsyncStorage from '@react-native-community/async-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get("window");
 const imgBI = require("@assets/innerLabsBI.png")
@@ -17,27 +17,27 @@ function LoginView(): React.ReactElement {
   const [isSaveId, setIsSaveId] = useState(false);
   const [userId, setUserId] = useState('');
 
-  // useEffect(() => {
-  //   const loadData = async () => {
-  //     try {
-  //       const savedIsSaveId = await AsyncStorage.getItem('isSaveId');
-  //       if (savedIsSaveId) {
-  //         setIsSaveId(savedIsSaveId === 'true');
-  //       }
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const savedIsSaveId = await AsyncStorage.getItem('isSaveId');
+        if (savedIsSaveId) {
+          setIsSaveId(savedIsSaveId === 'true');
+        }
 
-  //       if (isSaveId) {
-  //         const savedUserId = await AsyncStorage.getItem('user_id');
-  //         if (savedUserId) {
-  //           setUserId(savedUserId);
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error('Error loading data:', error);
-  //     }
-  //   };
+        if (isSaveId) {
+          const savedUserId = await AsyncStorage.getItem('user_id');
+          if (savedUserId) {
+            setUserId(savedUserId);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+      }
+    };
 
-  //   loadData();
-  // }, []);
+    loadData();
+  }, []);
 
   const onImgLayout = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout;
@@ -46,20 +46,20 @@ function LoginView(): React.ReactElement {
 
   const toggleCheckBox = async () => {
     setIsSaveId(!isSaveId);
-    // try {
-    //   await AsyncStorage.setItem('isSaveId', String(!isSaveId));
-    // } catch (error) {
-    //   console.error('Error saving data:', error);
-    // }
+    try {
+      await AsyncStorage.setItem('isSaveId', String(!isSaveId));
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   };
 
   const handleUserIdChange = async (text: string) => {
     setUserId(text);
-    // try {
-    //   await AsyncStorage.setItem('user_id', text);
-    // } catch (error) {
-    //   console.error('Error saving data:', error);
-    // }
+    try {
+      await AsyncStorage.setItem('user_id', text);
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
   };
 
   return (
