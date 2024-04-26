@@ -78,7 +78,7 @@ function LoginView(): React.ReactElement {
             style={[styles.textInputLogin, {width: imgWidth}]}
             placeholder="Enter your ID"
             value={userId}
-            // onChangeText={handleUserIdChange}
+            onChangeText={handleUserIdChange}
             />
           <TouchableOpacity onPress={toggleCheckBox} style={styles.imageUncheckedBox}>
             <Image source={isSaveId ? imgCheckedBox : imgUnCheckedBox}  />
