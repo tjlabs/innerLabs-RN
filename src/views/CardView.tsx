@@ -1,7 +1,6 @@
 import palette from '@styles/colorPalette';
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet, Dimensions} from 'react-native';
-import { NavigationProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { CommonType } from '../common/CommonType'
 
