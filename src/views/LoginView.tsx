@@ -2,6 +2,8 @@ import palette from '@styles/colorPalette';
 import React, {useState, useRef, useEffect} from 'react';
 import { View, Text, Button, TextInput, Image, StyleSheet, Dimensions, TouchableOpacity, LayoutChangeEvent} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { CommonType } from '../common/CommonType'
 
 const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get("window");
 const imgBI = require("@assets/innerLabsBI.png")
@@ -10,7 +12,10 @@ const imgCheckedBox = require("@assets/checkedBox.png")
 const imgUnCheckedBox = require("@assets/unCheckedBox.png")
 const imgLoginButton = require("@assets/buttonLogin.png")
 
-function LoginView(): React.ReactElement {
+type LoginViewNavigationProp = StackNavigationProp<CommonType.ViewStackPageList, 'LoginView'>;
+type Props = { navigation: LoginViewNavigationProp; };
+
+function LoginView({navigation}: Props): React.ReactElement {
   const [imgWidth, setImgWidth] = useState(0);
   const imgRef = useRef<Image>(null);
 
@@ -88,7 +93,9 @@ function LoginView(): React.ReactElement {
       </View>
       <View style={styles.part}>
         <View>
-          <Image source={imgLoginButton}/>
+          <TouchableOpacity onPress={() => userId ? navigation.navigate("CardView", { id: userId, region: "Korea" }) : null}>
+            <Image source={imgLoginButton}/>
+          </TouchableOpacity>
         </View>
       </View>
       <View style={styles.part}>

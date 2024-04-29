@@ -7,7 +7,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import PermissionUtil, { APP_PERMISSION_CODE } from '@common/PermissionUtil';
-import WeatherView from '@views/WeatherView';
 import {
   SafeAreaView,
   ScrollView,
@@ -23,11 +22,10 @@ import {
   PermissionsAndroid,
   ToastAndroid,
 } from 'react-native';
-import LoginView from './views/LoginView';
+import StackNavigation from '@views/StackNavigation';
 
 const {height: SCREEN_HEIGHT, width: SCREEN_WIDTH} = Dimensions.get("window");
-
-function App(): React.JSX.Element {
+function App(props: any): React.JSX.Element {
   useEffect(() => {
     const requestPermissions = async () => {
       try {
@@ -40,8 +38,13 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <LoginView/>
-    // <WeatherView/>
+    // <NavigationContainer>
+    //   <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName="Home">
+    //     <Stack.Screen name="Home" component={LoginView} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    // <LoginView/>
+    <StackNavigation/>
   );
 }
 
